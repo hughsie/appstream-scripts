@@ -1,4 +1,8 @@
-time ../../appstream-glib/client/appstream-builder						\
+APPSTREAM_GLIB_PATH=../../appstream-glib
+EXTRA_APPSTREAM_PATH=../../fedora-appstream
+ARCHIVE_PATH=/media/raid
+
+time ${APPSTREAM_GLIB_PATH}/client/appstream-builder						\
 	--api-version=0.8						\
 	--add-cache-id							\
 	--verbose							\
@@ -7,8 +11,8 @@ time ../../appstream-glib/client/appstream-builder						\
 	--log-dir=./logs						\
 	--temp-dir=./tmp						\
 	--cache-dir=../cache						\
-	--packages-dir=/media/raid/Archive/Arch/packages		\
-	--extra-appdata-dir=../../fedora-appstream/appdata-extra	\
+	--packages-dir=${ARCHIVE_PATH}/Archive/Arch/packages		\
+	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
 	--output-dir=./metadata						\
 	--screenshot-dir=./metadata/arch				\
 	--basename=arch							\

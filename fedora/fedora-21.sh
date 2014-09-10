@@ -1,4 +1,8 @@
-time ../../appstream-glib/client/appstream-builder			\
+APPSTREAM_GLIB_PATH=../../appstream-glib
+EXTRA_APPSTREAM_PATH=../../fedora-appstream
+ARCHIVE_PATH=/media/raid
+
+time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--api-version=0.8						\
 	--add-cache-id							\
 	--verbose							\
@@ -6,21 +10,21 @@ time ../../appstream-glib/client/appstream-builder			\
 	--log-dir=./logs/fedora-21					\
 	--temp-dir=./tmp/fedora-21					\
 	--cache-dir=../cache						\
-	--packages-dir=/media/raid/Archive/Fedora/f21/packages		\
-	--extra-appstream-dir=../fedora-appstream/appstream-extra	\
-	--extra-appdata-dir=../fedora-appstream/appdata-extra		\
-	--extra-screenshots-dir=../fedora-appstream/screenshots-extra	\
+	--packages-dir=${ARCHIVE_PATH}/Archive/Fedora/f21/packages	\
+	--extra-appstream-dir=${EXTRA_APPSTREAM_PATH}/appstream-extra	\
+	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
+	--extra-screenshots-dir=${EXTRA_APPSTREAM_PATH}/screenshots-extra \
 	--output-dir=./metadata/f21					\
 	--screenshot-dir=./metadata/f21					\
 	--basename=fedora-21						\
 	--screenshot-uri=http://alt.fedoraproject.org/pub/alt/screenshots/f21/
-../../appstream-glib/client/appstream-util non-package-yaml 		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
 	./metadata/f21/fedora-21.xml.gz 				\
 	./metadata/f21/applications-to-import.yaml
-../../appstream-glib/client/appstream-util status-html 			\
+${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 	./metadata/f21/fedora-21.xml.gz 				\
 	./metadata/f21/status.html
-../../appstream-glib/client/appstream-util status-html 			\
+${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 	./metadata/f21/fedora-21-failed.xml.gz 				\
 	./metadata/f21/failed.html
 
