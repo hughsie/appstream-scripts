@@ -13,11 +13,11 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--output-dir=./metadata/f20					\
 	--basename=fedora-20
 ${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
-	./metadata/f20.xml.gz						\
+	./metadata/f20/fedora-20.xml.gz 				\
 	./metadata/f20/applications-to-import.yaml
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f20.xml.gz						\
+	./metadata/f20/fedora-20.xml.gz 				\
 	./metadata/f20/status.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f20-failed.xml.gz					\
+	./metadata/f20/fedora-20-failed.xml.gz 				\
 	./metadata/f20/failed.html
