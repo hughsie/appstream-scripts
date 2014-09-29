@@ -5,6 +5,6 @@ chmod a+rx */752x423
 chmod a+rx */source
 chmod a+r */*/*.png
 chmod a+r */*.html
-rsync -vr --progress					\
-	f20 f21 					\
+rsync --verbose --recursive --update --progress		\
+	f20 f21 f22 					\
 	rhughes@secondary01.fedoraproject.org:/srv/pub/alt/screenshots/

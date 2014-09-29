@@ -5,6 +5,8 @@ ARCHIVE_PATH=/media/raid
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--api-version=0.8						\
 	--add-cache-id							\
+	--min-icon-size=32						\
+	--enable-hidpi							\
 	--old-metadata=./metadata/f22					\
 	--log-dir=../../createrepo_as_logs				\
 	--temp-dir=./tmp/fedora-22					\
@@ -29,5 +31,5 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 
 # sync the screenshots and metadata
 cd metadata/
-#./upload.sh
+./upload.sh
 cd -
