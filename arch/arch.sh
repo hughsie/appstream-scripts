@@ -11,7 +11,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder						\
 	--log-dir=./logs						\
 	--temp-dir=./tmp						\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Archive/Arch/packages		\
+	--packages-dir=${ARCHIVE_PATH}/Mirror/Arch/packages		\
 	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
 	--output-dir=./metadata						\
 	--screenshot-dir=./metadata/arch				\

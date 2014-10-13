@@ -7,7 +7,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--log-dir=./logs/fedora-20					\
 	--temp-dir=./tmp/fedora-20					\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Archive/Fedora/f20/packages	\
+	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f20/packages	\
 	--extra-appstream-dir=${EXTRA_APPSTREAM_PATH}/appstream-extra	\
 	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
 	--output-dir=./metadata/f20					\

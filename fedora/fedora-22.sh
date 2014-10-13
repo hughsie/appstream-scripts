@@ -11,7 +11,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--log-dir=../../createrepo_as_logs				\
 	--temp-dir=./tmp/fedora-22					\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Archive/Fedora/rawhide/packages	\
+	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/rawhide/packages	\
 	--extra-appstream-dir=${EXTRA_APPSTREAM_PATH}/appstream-extra	\
 	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
 	--extra-screenshots-dir=${EXTRA_APPSTREAM_PATH}/screenshots-extra \
