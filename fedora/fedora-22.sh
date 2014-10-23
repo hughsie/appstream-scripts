@@ -7,6 +7,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--add-cache-id							\
 	--min-icon-size=32						\
 	--enable-hidpi							\
+	--max-threads=2							\
 	--old-metadata=./metadata/f22					\
 	--log-dir=../../createrepo_as_logs				\
 	--temp-dir=./tmp/fedora-22					\
