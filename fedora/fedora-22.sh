@@ -5,7 +5,7 @@ ARCHIVE_PATH=/media/raid
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--api-version=0.8						\
 	--add-cache-id							\
-	--min-icon-size=32						\
+	--min-icon-size=48						\
 	--enable-hidpi							\
 	--max-threads=2							\
 	--old-metadata=./metadata/f22					\
