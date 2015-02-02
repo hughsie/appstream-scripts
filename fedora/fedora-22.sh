@@ -7,6 +7,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--add-cache-id							\
 	--min-icon-size=48						\
 	--enable-hidpi							\
+	--include-failed						\
 	--max-threads=2							\
 	--old-metadata=./metadata/f22					\
 	--log-dir=../../createrepo_as_logs				\
@@ -19,6 +20,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--output-dir=./metadata/f22					\
 	--screenshot-dir=./metadata/f22					\
 	--basename=fedora-22						\
+	--origin=fedora-22						\
 	--screenshot-uri=http://alt.fedoraproject.org/pub/alt/screenshots/f22/
 ${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
 	./metadata/f22/fedora-22.xml.gz					\
@@ -29,6 +31,10 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 	./metadata/f22/fedora-22-failed.xml.gz				\
 	./metadata/f22/failed.html
+${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
+	./metadata/f22/matrix.html					\
+	./metadata/f22/fedora-22.xml.gz					\
+	./metadata/f22/fedora-22-failed.xml.gz
 
 # sync the screenshots and metadata
 cd metadata/
