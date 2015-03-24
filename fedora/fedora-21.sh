@@ -11,8 +11,8 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--log-dir=./logs/fedora-21					\
 	--temp-dir=./tmp/fedora-21					\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f21/packages	\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f21/updates	\
+	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f21/Packages	\
+	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f21-updates	\
 	--extra-appstream-dir=${EXTRA_APPSTREAM_PATH}/appstream-extra	\
 	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
 	--extra-screenshots-dir=${EXTRA_APPSTREAM_PATH}/screenshots-extra \

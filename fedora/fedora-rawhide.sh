@@ -2,6 +2,19 @@ APPSTREAM_GLIB_PATH=../../appstream-glib
 EXTRA_APPSTREAM_PATH=../../fedora-appstream
 ARCHIVE_PATH=/media/raid
 
+echo "Building firmware..."
+time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
+	--api-version=0.9						\
+	--max-threads=1							\
+	--log-dir=../../createrepo_as_logs				\
+	--temp-dir=./tmp/fedora-23					\
+	--cache-dir=../cache						\
+	--packages-dir=${ARCHIVE_PATH}/Mirror/Firmware			\
+	--output-dir=./metadata/f23					\
+	--basename=firmware						\
+	--origin=firmware-23
+
+echo "Building applications..."
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--api-version=0.8						\
 	--verbose							\
@@ -14,7 +27,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--log-dir=../../createrepo_as_logs				\
 	--temp-dir=./tmp/fedora-23					\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/rawhide/packages	\
+	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/rawhide/Packages	\
 	--extra-appstream-dir=${EXTRA_APPSTREAM_PATH}/appstream-extra	\
 	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
 	--extra-screenshots-dir=${EXTRA_APPSTREAM_PATH}/screenshots-extra \
@@ -23,7 +36,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--basename=fedora-23						\
 	--origin=fedora-23						\
 	--screenshot-uri=http://alt.fedoraproject.org/pub/alt/screenshots/f23/
-#exit
+
 ${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
 	./metadata/f23/fedora-23.xml.gz					\
 	./metadata/f23/applications-to-import.yaml
