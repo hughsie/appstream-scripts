@@ -1,14 +1,15 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib
 EXTRA_APPSTREAM_PATH=../../fedora-appstream
-ARCHIVE_PATH=/media/raid
+ARCHIVE_PATH=/media/mirror
 
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--api-version=0.3						\
 	--log-dir=./logs/fedora-20					\
 	--temp-dir=./tmp/fedora-20					\
+	--include-failed						\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f20/Packages	\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f20-updates	\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f20/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f20-updates		\
 	--extra-appstream-dir=${EXTRA_APPSTREAM_PATH}/appstream-extra	\
 	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
 	--output-dir=./metadata/f20					\

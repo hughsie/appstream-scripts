@@ -1,18 +1,5 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib
-EXTRA_APPSTREAM_PATH=../../fedora-appstream
-ARCHIVE_PATH=/media/raid
-
-echo "Building firmware..."
-time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
-	--api-version=0.9						\
-	--max-threads=1							\
-	--log-dir=../../createrepo_as_logs				\
-	--temp-dir=./tmp/fedora-23					\
-	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Firmware			\
-	--output-dir=./metadata/f23					\
-	--basename=firmware						\
-	--origin=firmware-23
+ARCHIVE_PATH=/media/mirror
 
 echo "Building applications..."
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
@@ -22,21 +9,28 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--min-icon-size=48						\
 	--enable-hidpi							\
 	--include-failed						\
-	--max-threads=2							\
+	--max-threads=8							\
 	--old-metadata=./metadata/f23					\
 	--log-dir=../../createrepo_as_logs				\
 	--temp-dir=./tmp/fedora-23					\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/rawhide/Packages	\
-	--extra-appstream-dir=${EXTRA_APPSTREAM_PATH}/appstream-extra	\
-	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
-	--extra-screenshots-dir=${EXTRA_APPSTREAM_PATH}/screenshots-extra \
+	--packages-dir=${ARCHIVE_PATH}/Fedora/rawhide/Packages		\
 	--output-dir=./metadata/f23					\
-	--screenshot-dir=./metadata/f23					\
 	--basename=fedora-23						\
-	--origin=fedora-23						\
-	--screenshot-uri=http://alt.fedoraproject.org/pub/alt/screenshots/f23/
+	--origin=fedora
 
+echo "Extracting font screenshots"
+cd ./metadata/f23/source
+tar -xvf ../fedora-23-screenshots.tar
+cd -
+
+echo "Mirroring screenshots"
+${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots		\
+	./metadata/f23/fedora-23.xml.gz					\
+	http://alt.fedoraproject.org/pub/alt/screenshots/f23		\
+	../cache ./metadata/f23
+
+echo "Creating status pages"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
 	./metadata/f23/fedora-23.xml.gz					\
 	./metadata/f23/applications-to-import.yaml
@@ -51,7 +45,7 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
 	./metadata/f23/fedora-23.xml.gz					\
 	./metadata/f23/fedora-23-failed.xml.gz
 
-# sync the screenshots and metadata
+echo "Uploading new metadata"
 cd metadata/
 ./upload.sh
 cd -

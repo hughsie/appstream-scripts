@@ -1,6 +1,6 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib
 EXTRA_APPSTREAM_PATH=../../fedora-appstream
-ARCHIVE_PATH=/media/raid
+ARCHIVE_PATH=/media/mirror
 
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--api-version=0.8						\
@@ -10,12 +10,12 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--old-metadata=./metadata/f22					\
 	--enable-hidpi							\
 	--include-failed						\
-	--max-threads=2							\
+	--max-threads=4							\
 	--log-dir=./logs/fedora-22					\
 	--temp-dir=./tmp/fedora-22					\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f22/Packages	\
-	--packages-dir=${ARCHIVE_PATH}/Mirror/Fedora/f22-updates	\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f22/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f22-updates		\
 	--extra-appstream-dir=${EXTRA_APPSTREAM_PATH}/appstream-extra	\
 	--extra-appdata-dir=${EXTRA_APPSTREAM_PATH}/appdata-extra	\
 	--extra-screenshots-dir=${EXTRA_APPSTREAM_PATH}/screenshots-extra \
