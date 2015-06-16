@@ -1,4 +1,4 @@
-APPSTREAM_GLIB_PATH=../../appstream-glib
+APPSTREAM_GLIB_PATH=../../appstream-glib-fedora
 EXTRA_APPSTREAM_PATH=../../fedora-appstream
 ARCHIVE_PATH=/media/mirror
 
