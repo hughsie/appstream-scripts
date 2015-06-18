@@ -18,48 +18,48 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--log-dir=./logs						\
 	--temp-dir=./tmp/el7						\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-7.2-candidate		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/epel-7			\
 	--output-dir=./metadata/el7					\
-	--basename=rhel-7						\
-	--origin=rhel-7
+	--basename=epel-7						\
+	--origin=epel-7
 
 echo "Extracting font screenshots"
 cd ./metadata/el7/source
-tar -xvf ../rhel-7-screenshots.tar
+tar -xvf ../epel-7-screenshots.tar
 cd -
 
 echo "Incorporating metadata from Fedora"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
-	metadata/el7/rhel-7.xml.gz					\
+	metadata/el7/epel-7.xml.gz					\
 	../fedora/metadata/f21/fedora-21.xml.gz				\
-	metadata/el7/rhel-7.xml.gz
+	metadata/el7/epel-7.xml.gz
 ${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
-	metadata/el7/rhel-7.xml.gz					\
+	metadata/el7/epel-7.xml.gz					\
 	../fedora/metadata/f22/fedora-22.xml.gz				\
-	metadata/el7/rhel-7.xml.gz
+	metadata/el7/epel-7.xml.gz
 ${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
-	metadata/el7/rhel-7.xml.gz					\
+	metadata/el7/epel-7.xml.gz					\
 	../fedora/metadata/f23/fedora-23.xml.gz				\
-	metadata/el7/rhel-7.xml.gz
+	metadata/el7/epel-7.xml.gz
 
 #FIXME -- DO NOT USE FEDORA PROJECT
 echo "Mirroring screenshots"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots	\
-	./metadata/el7/rhel-7.xml.gz					\
+	./metadata/el7/epel-7.xml.gz					\
 	http://alt.fedoraproject.org/pub/alt/screenshots/f21		\
 	../cache ./metadata/el7
 
 echo "Creating status pages"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/el7/rhel-7.xml.gz					\
+	./metadata/el7/epel-7.xml.gz					\
 	./metadata/el7/status.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/el7/rhel-7-failed.xml.gz				\
+	./metadata/el7/epel-7-failed.xml.gz				\
 	./metadata/el7/failed.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
 	./metadata/el7/matrix.html					\
-	./metadata/el7/rhel-7.xml.gz					\
-	./metadata/el7/rhel-7-failed.xml.gz
+	./metadata/el7/epel-7.xml.gz					\
+	./metadata/el7/epel-7-failed.xml.gz
 
 #echo "Uploading new metadata"
 #cd metadata/
