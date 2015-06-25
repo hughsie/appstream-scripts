@@ -16,7 +16,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--include-failed						\
 	--max-threads=8							\
 	--log-dir=./logs						\
-	--temp-dir=./tmp/el7						\
+	--temp-dir=./tmp/epel-7						\
 	--cache-dir=../cache						\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/epel-7			\
 	--output-dir=./metadata/el7					\
