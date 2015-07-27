@@ -46,7 +46,7 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
 echo "Mirroring screenshots"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots	\
 	./metadata/el7/epel-7.xml.gz					\
-	http://alt.fedoraproject.org/pub/alt/screenshots/f21		\
+	http://alt.fedoraproject.org/pub/alt/screenshots/el7		\
 	../cache ./metadata/el7
 
 echo "Creating status pages"
