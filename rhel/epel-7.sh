@@ -14,7 +14,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--min-icon-size=22						\
 	--enable-hidpi							\
 	--include-failed						\
-	--max-threads=8							\
+	--max-threads=1							\
 	--log-dir=./logs						\
 	--temp-dir=./tmp/epel-7						\
 	--cache-dir=../cache						\
@@ -42,11 +42,10 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
 	../fedora/metadata/f23/fedora-23.xml.gz				\
 	metadata/el7/epel-7.xml.gz
 
-#FIXME -- DO NOT USE FEDORA PROJECT
 echo "Mirroring screenshots"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots	\
 	./metadata/el7/epel-7.xml.gz					\
-	http://alt.fedoraproject.org/pub/alt/screenshots/el7		\
+	https://access.redhat.com/webassets/avalon/g/gnome-software/screenshots/ \
 	../cache ./metadata/el7
 
 echo "Creating status pages"
