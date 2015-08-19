@@ -1,0 +1,5 @@
+cache
+firmware.xml.gz
+firmware.xml.gz.asc
+__pycache__
+filter.txt

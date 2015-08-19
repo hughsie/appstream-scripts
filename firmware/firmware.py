@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# Copyright (C) 2015 Richard Hughes <richard@hughsie.com>
+# Licensed under the GNU General Public License Version 2
 
 import os
 import shutil
@@ -7,14 +9,19 @@ import sys
 from time import sleep
 
 # config locations
-mirror_location = 'https://beta-lvfs.rhcloud.com/downloads/'
 path_lvfs_mnt = '/mnt/lvfs'
 path_sign_server_mnt = '/mnt/signing_server'
 path_downloads = os.path.join(path_lvfs_mnt, 'downloads')
 path_uploads = os.path.join(path_lvfs_mnt, 'uploads')
 path_archive = os.path.join(path_lvfs_mnt, 'archive')
 path_logs = os.path.join(path_lvfs_mnt, 'logs')
-openshift_user = '558a7dace0b8cdf9750000df'
+
+if False:
+    openshift_user = '55ce0aa87628e1c21300028c'
+    openshift_base = 'testing-lvfs.rhcloud.com'
+else:
+    openshift_user = '55d4a71789f5cf4eb80002af'
+    openshift_base = 'secure-lvfs.rhcloud.com'
 
 class FwsigndServer(object):
 
@@ -53,9 +60,15 @@ class FwsigndServer(object):
 
         # wait for file to disappear
         source_fn = os.path.join(self.source_loc, os.path.basename(fn))
-        while os.path.exists(source_fn):
+        for i in range(0, 30):
+            if not os.path.exists(source_fn):
+                break
             print('Waiting for fwsignd...')
             sleep(1)
+
+        # fwupd is still processing
+        if os.path.exists(source_fn):
+            return None
 
         # return correct path
         dest = os.path.join(self.destination_loc, os.path.basename(fn))
@@ -65,27 +78,48 @@ class FwsigndServer(object):
 
 def main():
 
-    # mount LVFS OpenStack data
+    # mount LVFS OpenShift instance
     should_unmount = False
     if not os.path.exists(path_lvfs_mnt):
         os.mkdir(path_lvfs_mnt)
     if not os.path.exists(os.path.join(path_lvfs_mnt, 'downloads')):
         print('Getting firmware...')
-        rc = subprocess.call(['sshfs',
-                              openshift_user + '@beta-lvfs.rhcloud.com:/var/lib/openshift/' + openshift_user + '/app-root/data',
-                              path_lvfs_mnt])
+        argv = ['sshfs',
+                openshift_user + '@' + openshift_base + ':/var/lib/openshift/' + openshift_user + '/app-root/data',
+                path_lvfs_mnt]
+        rc = subprocess.call(argv)
         if rc != 0:
-            print("FAILED to mount OpenShift")
+            print("FAILED to mount OpenShift: %s" % argv)
             sys.exit(1)
         should_unmount = True
 
     # start signing server
     fwsignd = FwsigndServer('hughsie@192.168.1.35:/srv/fwsignd')
 
+    # create required dirs
+    if not os.path.exists(path_archive):
+        os.mkdir(path_archive)
+    if not os.path.exists(path_downloads):
+        os.mkdir(path_downloads)
+
+    # get filter file
+    print('Getting filter...')
+    argv = ['wget',
+            "https://%s/?action=dump&target=stable" % openshift_base,
+            '--quiet',
+            '--output-document=filter.txt']
+    rc = subprocess.call(argv)
+    if rc != 0:
+        print("FAILED to download filter: %s" % argv)
+        sys.exit(1)
+
     # sign file
     for fn in os.listdir(path_uploads):
         path = os.path.join(path_uploads, fn)
         path_signed = fwsignd.sign_file(path)
+        if not path_signed:
+            print("Failed to sign %s" % fn)
+            continue
         shutil.copy(path_signed, path_downloads)
 
         print('Archiving file: ' + fn)
@@ -103,6 +137,7 @@ def main():
                           '--output-dir=' + path_downloads,
                           '--basename=firmware',
                           '--uncompressed-icons',
+                          '--filter=filter.txt',
                           '--origin=lvfs'])
     if rc != 0:
         print("FAILED to build firmware")
@@ -112,7 +147,7 @@ def main():
     rc = subprocess.call(['appstream-util',
                           'mirror-local-firmware',
                           os.path.join(path_downloads, 'firmware.xml.gz'),
-                          mirror_location])
+                          "https://%s/downloads/" % openshift_base])
     if rc != 0:
         print("FAILED to mirror")
         sys.exit(1)
