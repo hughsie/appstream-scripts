@@ -60,7 +60,7 @@ class FwsigndServer(object):
 
         # wait for file to disappear
         source_fn = os.path.join(self.source_loc, os.path.basename(fn))
-        for i in range(0, 30):
+        for i in range(0, 240):
             if not os.path.exists(source_fn):
                 break
             print('Waiting for fwsignd...')
@@ -75,6 +75,13 @@ class FwsigndServer(object):
         if fn.endswith('.xml') or fn.endswith('.xml.gz'):
             dest += '.asc'
         return dest
+
+def get_fn_for_target(target):
+    if target == 'stable':
+        return 'firmware'
+    if target == 'testing':
+        return 'firmware-testing'
+    return None
 
 def main():
 
@@ -103,59 +110,61 @@ def main():
         os.mkdir(path_downloads)
 
     # get filter file
-    print('Getting filter...')
-    argv = ['wget',
-            "https://%s/?action=dump&target=stable" % openshift_base,
-            '--quiet',
-            '--output-document=filter.txt']
-    rc = subprocess.call(argv)
-    if rc != 0:
-        print("FAILED to download filter: %s" % argv)
-        sys.exit(1)
+    for target in ['stable', 'testing']:
+        print("Getting %s filter..." % target)
+        argv = ['wget',
+                "https://%s/?action=dump&target=%s" % (openshift_base, target),
+                '--quiet',
+                '--output-document=filter.txt']
+        rc = subprocess.call(argv)
+        if rc != 0:
+            print("FAILED to download filter: %s" % argv)
+            sys.exit(1)
 
-    # sign file
-    for fn in os.listdir(path_uploads):
-        path = os.path.join(path_uploads, fn)
-        path_signed = fwsignd.sign_file(path)
-        if not path_signed:
-            print("Failed to sign %s" % fn)
-            continue
-        shutil.copy(path_signed, path_downloads)
+        # sign file
+        for fn in os.listdir(path_uploads):
+            path = os.path.join(path_uploads, fn)
+            path_signed = fwsignd.sign_file(path)
+            if not path_signed:
+                print("Failed to sign %s" % fn)
+                continue
+            shutil.copy(path_signed, path_downloads)
 
-        print('Archiving file: ' + fn)
-        shutil.move(path, path_archive)
+            print('Archiving file: ' + fn)
+            shutil.move(path, path_archive)
 
-    # build firmware
-    print('Building firmware...')
-    rc = subprocess.call(['appstream-builder',
-                          '--api-version=0.9',
-                          '--max-threads=1',
-                          '--log-dir=' + path_logs,
-                          '--temp-dir=/tmp/lvfs',
-                          '--cache-dir=../cache',
-                          '--packages-dir=' + path_downloads,
-                          '--output-dir=' + path_downloads,
-                          '--basename=firmware',
-                          '--uncompressed-icons',
-                          '--filter=filter.txt',
-                          '--origin=lvfs'])
-    if rc != 0:
-        print("FAILED to build firmware")
-        sys.exit(1)
+        # build firmware
+        target_fn = get_fn_for_target(target)
+        print("Building %s..." % target_fn)
+        rc = subprocess.call(['appstream-builder',
+                              '--api-version=0.9',
+                              '--max-threads=1',
+                              '--log-dir=' + path_logs,
+                              '--temp-dir=/tmp/lvfs',
+                              '--cache-dir=../cache',
+                              '--packages-dir=' + path_downloads,
+                              '--output-dir=' + path_downloads,
+                              "--basename=%s" % target_fn,
+                              '--uncompressed-icons',
+                              '--filter=filter.txt',
+                              '--origin=lvfs'])
+        if rc != 0:
+            print("FAILED to build firmware")
+            sys.exit(1)
 
-    print('Mirroring firmware...')
-    rc = subprocess.call(['appstream-util',
-                          'mirror-local-firmware',
-                          os.path.join(path_downloads, 'firmware.xml.gz'),
-                          "https://%s/downloads/" % openshift_base])
-    if rc != 0:
-        print("FAILED to mirror")
-        sys.exit(1)
+        print("Mirroring %s..." % target_fn)
+        rc = subprocess.call(['appstream-util',
+                              'mirror-local-firmware',
+                              os.path.join(path_downloads, "%s.xml.gz" % target_fn),
+                              "https://%s/downloads/" % openshift_base])
+        if rc != 0:
+            print("FAILED to mirror")
+            sys.exit(1)
 
-    # sign metadata too
-    md_asc = fwsignd.sign_file(os.path.join(path_downloads, 'firmware.xml.gz'))
-    shutil.copy(md_asc, path_downloads)
-    os.remove(md_asc)
+        # sign metadata too
+        md_asc = fwsignd.sign_file(os.path.join(path_downloads, "%s.xml.gz" % target_fn))
+        shutil.copy(md_asc, path_downloads)
+        os.remove(md_asc)
 
     if should_unmount:
         rc = subprocess.call(['fusermount', '-u', path_lvfs_mnt])
