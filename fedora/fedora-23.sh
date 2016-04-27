@@ -3,7 +3,6 @@ ARCHIVE_PATH=/media/mirror
 
 echo "Building applications..."
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
-	--api-version=0.8						\
 	--verbose							\
 	--add-cache-id							\
 	--min-icon-size=48						\

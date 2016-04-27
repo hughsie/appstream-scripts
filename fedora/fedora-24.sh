@@ -9,40 +9,40 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--enable-hidpi							\
 	--include-failed						\
 	--max-threads=8							\
-	--old-metadata=./metadata/f25					\
-	--log-dir=../../createrepo_as_logs				\
-	--temp-dir=./tmp/fedora-25					\
+	--old-metadata=./metadata/f24					\
+	--log-dir=./logs/fedora-24					\
+	--temp-dir=./tmp/fedora-24					\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/rawhide/Packages		\
-	--output-dir=./metadata/f25					\
-	--basename=fedora-25						\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f24/Packages		\
+	--output-dir=./metadata/f24					\
+	--basename=fedora-24						\
 	--origin=fedora
 
 echo "Extracting font screenshots"
-cd ./metadata/f25/source
-tar -xvf ../fedora-25-screenshots.tar
+cd ./metadata/f24/source
+tar -xvf ../fedora-24-screenshots.tar
 cd -
 
 echo "Mirroring screenshots"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots		\
-	./metadata/f25/fedora-25.xml.gz					\
-	http://alt.fedoraproject.org/pub/alt/screenshots/f25		\
-	../cache ./metadata/f25
+	./metadata/f24/fedora-24.xml.gz					\
+	http://alt.fedoraproject.org/pub/alt/screenshots/f24		\
+	../cache ./metadata/f24
 
 echo "Creating status pages"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
-	./metadata/f25/fedora-25.xml.gz					\
-	./metadata/f25/applications-to-import.yaml
+	./metadata/f24/fedora-24.xml.gz					\
+	./metadata/f24/applications-to-import.yaml
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f25/fedora-25.xml.gz					\
-	./metadata/f25/status.html
+	./metadata/f24/fedora-24.xml.gz					\
+	./metadata/f24/status.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f25/fedora-25-failed.xml.gz				\
-	./metadata/f25/failed.html
+	./metadata/f24/fedora-24-failed.xml.gz				\
+	./metadata/f24/failed.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
-	./metadata/f25/matrix.html					\
-	./metadata/f25/fedora-25.xml.gz					\
-	./metadata/f25/fedora-25-failed.xml.gz
+	./metadata/f24/matrix.html					\
+	./metadata/f24/fedora-24.xml.gz					\
+	./metadata/f24/fedora-24-failed.xml.gz
 
 echo "Uploading new metadata"
 cd metadata/

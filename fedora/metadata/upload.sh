@@ -8,5 +8,5 @@ chmod a+rx */source
 chmod a+r */*/*.png
 chmod a+r */*.html
 rsync --verbose --recursive --update --progress		\
-	f20 f21 f22 f23 f24				\
+	f20 f21 f22 f23 f24 f25				\
 	rhughes@secondary01.fedoraproject.org:/srv/pub/alt/screenshots/
