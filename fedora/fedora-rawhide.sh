@@ -14,6 +14,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--temp-dir=./tmp/fedora-25					\
 	--cache-dir=../cache						\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/rawhide/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
 	--output-dir=./metadata/f25					\
 	--basename=fedora-25						\
 	--origin=fedora
