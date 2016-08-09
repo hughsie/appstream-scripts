@@ -9,41 +9,41 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--enable-hidpi							\
 	--include-failed						\
 	--max-threads=8							\
-	--old-metadata=./metadata/f25					\
+	--old-metadata=./metadata/f26					\
 	--log-dir=../../createrepo_as_logs				\
-	--temp-dir=./tmp/fedora-25					\
+	--temp-dir=./tmp/fedora-26					\
 	--cache-dir=../cache						\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/rawhide/Packages		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
-	--output-dir=./metadata/f25					\
-	--basename=fedora-25						\
+	--output-dir=./metadata/f26					\
+	--basename=fedora-26						\
 	--origin=fedora
 
 echo "Extracting font screenshots"
-cd ./metadata/f25/source
-tar -xvf ../fedora-25-screenshots.tar
+cd ./metadata/f26/source
+tar -xvf ../fedora-26-screenshots.tar
 cd -
 
 echo "Mirroring screenshots"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots		\
-	./metadata/f25/fedora-25.xml.gz					\
-	http://alt.fedoraproject.org/pub/alt/screenshots/f25		\
-	../cache ./metadata/f25
+	./metadata/f26/fedora-26.xml.gz					\
+	http://alt.fedoraproject.org/pub/alt/screenshots/f26		\
+	../cache ./metadata/f26
 
 echo "Creating status pages"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
-	./metadata/f25/fedora-25.xml.gz					\
-	./metadata/f25/applications-to-import.yaml
+	./metadata/f26/fedora-26.xml.gz					\
+	./metadata/f26/applications-to-import.yaml
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f25/fedora-25.xml.gz					\
-	./metadata/f25/status.html
+	./metadata/f26/fedora-26.xml.gz					\
+	./metadata/f26/status.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f25/fedora-25-failed.xml.gz				\
-	./metadata/f25/failed.html
+	./metadata/f26/fedora-26-failed.xml.gz				\
+	./metadata/f26/failed.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
-	./metadata/f25/matrix.html					\
-	./metadata/f25/fedora-25.xml.gz					\
-	./metadata/f25/fedora-25-failed.xml.gz
+	./metadata/f26/matrix.html					\
+	./metadata/f26/fedora-26.xml.gz					\
+	./metadata/f26/fedora-26-failed.xml.gz
 
 echo "Uploading new metadata"
 cd metadata/
