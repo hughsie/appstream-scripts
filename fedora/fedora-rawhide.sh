@@ -1,6 +1,8 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib
 ARCHIVE_PATH=/media/mirror
 
+#export APPSTREAM_GLIB_OUTPUT_TRUSTED=1
+
 echo "Building applications..."
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--verbose							\
