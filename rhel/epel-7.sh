@@ -1,10 +1,8 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib
-ARCHIVE_PATH=/media/mirror
+ARCHIVE_PATH=/media/bulk/mirror
 
 echo "Building applications..."
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
-	--api-version=0.8						\
-	--add-cache-id							\
 	--verbose							\
 	--veto-ignore=dead-upstream					\
 	--veto-ignore=obsolete-deps					\
@@ -22,6 +20,9 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--output-dir=./metadata/el7					\
 	--basename=epel-7						\
 	--origin=epel-7
+
+# exit if failed
+rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
 echo "Extracting font screenshots"
 cd ./metadata/el7/source

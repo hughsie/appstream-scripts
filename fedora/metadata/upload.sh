@@ -8,9 +8,9 @@
 #chmod a+r */*/*.png
 #chmod a+r */*.html
 
-echo "fixing permissions on screenshots"
-find * -type f -exec chmod a+r {} \;
-find * -type d -exec chmod a+rx {} \;
+#echo "fixing permissions on screenshots"
+#find * -type f -exec chmod a+r {} \;
+#find * -type d -exec chmod a+rx {} \;
 
 echo "uploading screenshots"
 rsync --verbose --recursive --update --progress		\

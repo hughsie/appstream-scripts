@@ -1,10 +1,8 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib
-ARCHIVE_PATH=/media/mirror
+ARCHIVE_PATH=/media/bulk/mirror
 
 echo "Building applications..."
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
-	--api-version=0.8						\
-	--add-cache-id							\
 	--verbose							\
 	--veto-ignore=dead-upstream					\
 	--veto-ignore=obsolete-deps					\
@@ -18,7 +16,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--log-dir=./logs						\
 	--temp-dir=./tmp/rhel-7						\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-7.2-candidate		\
+	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-7.4-candidate		\
 	--output-dir=./metadata/el7					\
 	--basename=rhel-7						\
 	--origin=rhel-7
@@ -40,6 +38,14 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
 ${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
 	metadata/el7/rhel-7.xml.gz					\
 	../fedora/metadata/f23/fedora-23.xml.gz				\
+	metadata/el7/rhel-7.xml.gz
+${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
+	metadata/el7/rhel-7.xml.gz					\
+	../fedora/metadata/f24/fedora-24.xml.gz				\
+	metadata/el7/rhel-7.xml.gz
+${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
+	metadata/el7/rhel-7.xml.gz					\
+	../fedora/metadata/f25/fedora-25.xml.gz				\
 	metadata/el7/rhel-7.xml.gz
 
 echo "Mirroring screenshots"
@@ -64,3 +70,4 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
 #cd metadata/
 #./upload.sh
 #cd -
+
