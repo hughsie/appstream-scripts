@@ -1,20 +1,19 @@
-APPSTREAM_GLIB_PATH=../../appstream-glib
+APPSTREAM_GLIB_PATH=../../appstream-glib/build
 ARCHIVE_PATH=/media/bulk/mirror
 
 #export APPSTREAM_GLIB_OUTPUT_TRUSTED=1
 
 echo "Building applications..."
-time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
+${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--verbose							\
 	--min-icon-size=48						\
 	--enable-hidpi							\
 	--include-failed						\
-	--max-threads=1							\
 	--log-dir=../../createrepo_as_logs				\
 	--temp-dir=./tmp/fedora-27					\
 	--cache-dir=../cache						\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/rawhide/Packages		\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/openh274			\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
 	--output-dir=./metadata/f27					\
 	--basename=fedora-27						\
 	--origin=fedora | tee fedora-27.log

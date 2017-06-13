@@ -1,13 +1,13 @@
-APPSTREAM_GLIB_PATH=../../appstream-glib
+APPSTREAM_GLIB_PATH=../../appstream-glib/build
 ARCHIVE_PATH=/media/bulk/mirror
 
 echo "Building applications..."
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--verbose							\
+	--veto-ignore=add-default-icons					\
 	--min-icon-size=48						\
 	--enable-hidpi							\
 	--include-failed						\
-	--max-threads=1							\
 	--log-dir=./logs/fedora-26					\
 	--temp-dir=./tmp/fedora-26					\
 	--cache-dir=../cache						\
