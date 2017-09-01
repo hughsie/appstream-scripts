@@ -12,6 +12,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--temp-dir=./tmp/fedora-26					\
 	--cache-dir=../cache						\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/f26/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f26-updates		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
 	--output-dir=./metadata/f26					\
 	--basename=fedora-26						\

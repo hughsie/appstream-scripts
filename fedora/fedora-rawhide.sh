@@ -10,13 +10,13 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--enable-hidpi							\
 	--include-failed						\
 	--log-dir=../../createrepo_as_logs				\
-	--temp-dir=./tmp/fedora-27					\
+	--temp-dir=./tmp/fedora-28					\
 	--cache-dir=../cache						\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/rawhide/Packages		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
-	--output-dir=./metadata/f27					\
-	--basename=fedora-27						\
-	--origin=fedora | tee fedora-27.log
+	--output-dir=./metadata/f28					\
+	--basename=fedora-28						\
+	--origin=fedora | tee fedora-28.log
 
 # exit if failed
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
@@ -24,30 +24,30 @@ rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 #exit
 
 echo "Extracting font screenshots"
-cd ./metadata/f27/source
-tar -xvf ../fedora-27-screenshots.tar
+cd ./metadata/f28/source
+tar -xvf ../fedora-28-screenshots.tar
 cd -
 
 echo "Mirroring screenshots"
 appstream-util mirror-screenshots		\
-	./metadata/f27/fedora-27.xml.gz					\
-	http://dl.fedoraproject.org/pub/alt/screenshots/f27		\
-	../cache ./metadata/f27
+	./metadata/f28/fedora-28.xml.gz					\
+	http://dl.fedoraproject.org/pub/alt/screenshots/f28		\
+	../cache ./metadata/f28
 
 echo "Creating status pages"
 appstream-util non-package-yaml 		\
-	./metadata/f27/fedora-27.xml.gz					\
-	./metadata/f27/applications-to-import.yaml
+	./metadata/f28/fedora-28.xml.gz					\
+	./metadata/f28/applications-to-import.yaml
 appstream-util status-html 		\
-	./metadata/f27/fedora-27.xml.gz					\
-	./metadata/f27/status.html
+	./metadata/f28/fedora-28.xml.gz					\
+	./metadata/f28/status.html
 appstream-util status-html 		\
-	./metadata/f27/fedora-27-failed.xml.gz				\
-	./metadata/f27/failed.html
+	./metadata/f28/fedora-28-failed.xml.gz				\
+	./metadata/f28/failed.html
 appstream-util matrix-html 		\
-	./metadata/f27/matrix.html					\
-	./metadata/f27/fedora-27.xml.gz					\
-	./metadata/f27/fedora-27-failed.xml.gz
+	./metadata/f28/matrix.html					\
+	./metadata/f28/fedora-28.xml.gz					\
+	./metadata/f28/fedora-28-failed.xml.gz
 
 echo "Uploading new metadata"
 cd metadata/
