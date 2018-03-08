@@ -10,8 +10,9 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--include-failed						\
 	--log-dir=./logs/fedora-27					\
 	--temp-dir=./tmp/fedora-27					\
-	--cache-dir=../cache						\
+	--cache-dir=../cache-f27					\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/f27/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f27-updates		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
 	--output-dir=./metadata/f27					\
 	--basename=fedora-27						\

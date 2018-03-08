@@ -10,13 +10,13 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--enable-hidpi							\
 	--include-failed						\
 	--log-dir=../../createrepo_as_logs				\
-	--temp-dir=./tmp/fedora-28					\
-	--cache-dir=../cache						\
+	--temp-dir=./tmp/fedora-29					\
+	--cache-dir=../cache-f29					\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/rawhide/Packages		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
-	--output-dir=./metadata/f28					\
-	--basename=fedora-28						\
-	--origin=fedora | tee fedora-28.log
+	--output-dir=./metadata/f29					\
+	--basename=fedora-29						\
+	--origin=fedora | tee fedora-29.log
 
 # exit if failed
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
@@ -24,30 +24,30 @@ rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 #exit
 
 echo "Extracting font screenshots"
-cd ./metadata/f28/source
-tar -xvf ../fedora-28-screenshots.tar
+cd ./metadata/f29/source
+tar -xvf ../fedora-29-screenshots.tar
 cd -
 
 echo "Mirroring screenshots"
 appstream-util mirror-screenshots		\
-	./metadata/f28/fedora-28.xml.gz					\
-	http://dl.fedoraproject.org/pub/alt/screenshots/f28		\
-	../cache ./metadata/f28
+	./metadata/f29/fedora-29.xml.gz					\
+	http://dl.fedoraproject.org/pub/alt/screenshots/f29		\
+	../cache ./metadata/f29
 
 echo "Creating status pages"
 appstream-util non-package-yaml 		\
-	./metadata/f28/fedora-28.xml.gz					\
-	./metadata/f28/applications-to-import.yaml
+	./metadata/f29/fedora-29.xml.gz					\
+	./metadata/f29/applications-to-import.yaml
 appstream-util status-html 		\
-	./metadata/f28/fedora-28.xml.gz					\
-	./metadata/f28/status.html
+	./metadata/f29/fedora-29.xml.gz					\
+	./metadata/f29/status.html
 appstream-util status-html 		\
-	./metadata/f28/fedora-28-failed.xml.gz				\
-	./metadata/f28/failed.html
+	./metadata/f29/fedora-29-failed.xml.gz				\
+	./metadata/f29/failed.html
 appstream-util matrix-html 		\
-	./metadata/f28/matrix.html					\
-	./metadata/f28/fedora-28.xml.gz					\
-	./metadata/f28/fedora-28-failed.xml.gz
+	./metadata/f29/matrix.html					\
+	./metadata/f29/fedora-29.xml.gz					\
+	./metadata/f29/fedora-29-failed.xml.gz
 
 echo "Uploading new metadata"
 cd metadata/

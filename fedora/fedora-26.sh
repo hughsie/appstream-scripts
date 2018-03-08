@@ -10,7 +10,7 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--include-failed						\
 	--log-dir=./logs/fedora-26					\
 	--temp-dir=./tmp/fedora-26					\
-	--cache-dir=../cache						\
+	--cache-dir=../cache-f26					\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/f26/Packages		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/f26-updates		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
