@@ -9,10 +9,10 @@
 #chmod a+r */*.html
 
 echo "fixing permissions on screenshots"
-#find * -type f -exec chmod a+r {} \;
-#find * -type d -exec chmod a+rx {} \;
+find * -type f -exec chmod a+r {} \;
+find * -type d -exec chmod a+rx {} \;
 
 echo "uploading screenshots"
 rsync --verbose --recursive --update --progress		\
-	f20 f21 f22 f23 f24 f25	f26 f27	f28 f29		\
+	f26 f27	f28 f29		\
 	rhughes@secondary01.fedoraproject.org:/srv/pub/alt/screenshots/

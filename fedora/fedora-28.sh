@@ -2,7 +2,7 @@ APPSTREAM_GLIB_PATH=../../appstream-glib/build
 ARCHIVE_PATH=/media/bulk/mirror
 
 echo "Building applications..."
-time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
+${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--verbose							\
 	--veto-ignore=add-default-icons					\
 	--min-icon-size=48						\
@@ -12,14 +12,14 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--temp-dir=./tmp/fedora-28					\
 	--cache-dir=../cache-f28					\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/f28/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f28-updates		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
 	--output-dir=./metadata/f28					\
 	--basename=fedora-28						\
-	--origin=fedora | tee fedora-28.log
+	--origin=fedora
 
 # exit if failed
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
-#exit
 
 echo "Extracting font screenshots"
 cd ./metadata/f28/source
