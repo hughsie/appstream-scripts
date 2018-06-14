@@ -1,8 +1,8 @@
-APPSTREAM_GLIB_PATH=../../appstream-glib
+APPSTREAM_GLIB_PATH=../../appstream-glib/build
 ARCHIVE_PATH=/media/bulk/mirror
 
 echo "Building applications..."
-time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
+${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--verbose							\
 	--veto-ignore=dead-upstream					\
 	--veto-ignore=obsolete-deps					\
@@ -12,7 +12,6 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 	--min-icon-size=22						\
 	--enable-hidpi							\
 	--include-failed						\
-	--max-threads=1							\
 	--log-dir=./logs						\
 	--temp-dir=./tmp/epel-7						\
 	--cache-dir=../cache						\
