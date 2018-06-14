@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Richard Hughes <richard@hughsie.com> -->
+<components version="0.8" origin="">
+  <component type="desktop">
+    <id>akonaditray.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>akregator.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>alacarte.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>apol.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ark.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>avahi-discover.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>bacula-bat.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>bacula-traymonitor.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>bluedevil-monolithic.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>bssh.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>bvnc.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>cervisia.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>CMake.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>dolphin.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>dragonplayer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>emacsclient.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>emacs.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>emacs-terminal.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>esc.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>firefox.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>fluid.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>fontforge.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>fonts-tweak-tool.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gconf-editor.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>glade-3.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnome-control-center.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnome-ekiga.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnome-session-properties.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnome-system-log.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnote.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gvim.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gwenview.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>highlight.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>Home.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>im-chooser.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>inkscape.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>iok.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>javaws.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>juk.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>k3b.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kapptemplate.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kate.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kcachegrind.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kcalc.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>KCharSelect.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kcoloredit.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kdesystemsettings.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kdf.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kget.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kgpg.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kiconedit.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kinfocenter.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kleopatra.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>klipper.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kmag.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kmix.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>knetattach.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>knotes.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kolourpaint.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kompare.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>konqbrowser.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>konsole.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kopete.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>korganizer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>krdc.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kruler.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ksnapshot.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ksshaskpass.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ksysguard.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ksystemlog.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ktimer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ktimetracker.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kuiviewer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kwalletmanager.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kwikdisk.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kwrite.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>lokalize.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>lshw.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mozilla-thunderbird.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nepomukcontroller.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>net-xmtr.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nm-connection-editor.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>okteta.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>okular.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>org.gnome.ColorProfileViewer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt4-assistant.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt4-designer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt4-linguist.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt4-qdbusviewer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt4-qtconfig.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt-assistant3.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qtconfig3.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt-designer3.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt-linguist3.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qv4l2.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>redhat-access-gui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>rhn_register.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>seahorse.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>selinux-polgengui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>sepolicy.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>setroubleshoot.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>sweeper.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-date.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-firewall.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-kdump.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-keyboard.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-kickstart.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-language.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-printer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-selinux.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-config-users.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>systemsettings.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>system-switch-java.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>tracker-preferences.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>tuna.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>umbrello.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>vncviewer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>wireshark.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>x3270.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xchat.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xsane.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xt5250.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xterm.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>yelp.desktop</id>
+  </component>
+</components>

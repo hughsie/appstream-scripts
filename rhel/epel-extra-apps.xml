@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Richard Hughes <richard@hughsie.com> -->
+<components version="0.8" origin="">
+  <component type="desktop">
+    <id>0ad.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>0install.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>adaptivecomputing.com-xpbs.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>adaptivecomputing.com-xpbsmon.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ansifilter.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>arcstat-ui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>arcstorage-ui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ase-gui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>author.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>bitmap.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>bleachbit.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>bpython.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>byobu.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>cact.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>caja-beesu-manager.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>caja-browser.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>caja.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>caja-file-management-properties.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>chemtool.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>cherrytree.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>chromium-browser.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>cinnamon-session-properties.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>codeblocks.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>corrida.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>darkplaces-quake.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>darktable.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ddd.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>deja-dup-preferences.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>dia.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>diffuse.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>DivFix++.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>dngconverter.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>drobo-utils.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>dvdisaster.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>engauge-digitizer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>exaile.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>expoblending.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>filezilla.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>flamp.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>flarq.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>fldigi.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>fllog.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>florence.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>flrig.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>freecad.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>freeciv-gtk2.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>freeciv-mp-gtk2.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>freeciv-server.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>freedv.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gajim.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gapcmon.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gaupol.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gda-browser-5.0.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gda-control-center-5.0.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>git-cola.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>git-dag.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gitg.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>globaltime.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>glogg.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnome-gkrellm.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnome-gmail.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnome-translate.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnuclient.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gnu-smalltalk.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gobby-0.5.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>goldendict.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gparted.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gpredict.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gqrx.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>grub-customizer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gtk-gnutella.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gtk-recordmydesktop.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gtkwave.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>guake.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>guake-prefs.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>gv.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>homebank.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>htmldoc.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>josm.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>k4dirstat.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kbackup.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kbibtex.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kdevelop.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kdevelop_ps.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kdiff3.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kdocker.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>keepass.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>keepassx.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>key-mon.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kile.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kmahjongg.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kmines.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kmymoney.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>konversation.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>koules.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kpat.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kritagemini.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>kritasketch.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>krusader.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>krusader_root-mode.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ktorrent.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>librecad.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>links.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>lugaru.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mail-notification-properties.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>marble.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mate-calc.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>matecc.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mate-keybinding.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mate-keyboard.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mate-power-statistics.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mate-settings-mouse.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mate-volume-control.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>minetest.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mkvinfo.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mkvmergeGUI.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mMass.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>moon-buggy.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>moon-buggy-sound.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>motv.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mousepad.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mozo.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mtpaint.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mtt.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>mupmate.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nautilus-beesu-manager.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nemo.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>netgen-mesher.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nextcloud.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nntpgrab.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nntpgrab_qt.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nntpgrab_server_gtk.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nntpgrab_server_qt.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>nut-monitor.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>obgui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>onionshare.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>openarena.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>openlp.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>org.kde.kstars.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>panoramagui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>parole.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>pdfedit.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>photolayoutseditor.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>pidgin.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>planwork.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>pyhoca-gui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qbrowser.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qelectrotech.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qfaxreader.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qgis.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qgit.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qlandkartegt.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qmapshack.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qphotorec.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qsstv.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt5-assistant.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt5-designer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt5-linguist.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>qt5-qdbusviewer.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>quake3.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>quasselclient.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>quassel.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>quiterss.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>redshift-gtk.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>root.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>rsibreak.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>rxvt-unicode.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>saoimage.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>scangui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>SciTE.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>screengrab.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>scribus.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>skanlite.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>sniff.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>stellarium.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>stoken-gui.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>stoken-gui-small.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>sysprof.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>tagainijisho.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>taskjuggler.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>teeworlds.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>terminator.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>texworks.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>Thunar-bulk-rename.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>tint2conf.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>tintii.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>torrent-file-editor.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>transmission-qt.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>tremulous.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>tuxcut.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>tuxpaint.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>ucview.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>urbanterror.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>viking.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>vodovod.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>warsow.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>warzone2100.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>WebHTTrack.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>wesnoth.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>worldofpadman.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>wxmacmolplt.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>x11vnc.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xca.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xfcalendar.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xfce4-appfinder.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xfce4-clipman.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xfce4-screenshooter.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xfce4-sensors.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xfce4-terminal.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xfce-xfcalendar-settings.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xfig.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xgnokii.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xhydra.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xmlcopyeditor.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xmove.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xnightview.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xonotic.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xournal.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xpdf.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xvile.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>xvkbd.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>yad-icon-browser.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>yakuake.desktop</id>
+  </component>
+  <component type="desktop">
+    <id>yubikey-personalization-gui.desktop</id>
+  </component>
+</components>
