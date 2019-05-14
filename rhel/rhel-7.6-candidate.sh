@@ -34,8 +34,6 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util merge-appstream		\
 	metadata/el7/rhel-7.xml.gz					\
 	rhel-extra-apps.xml
 
-exit
-
 echo "Incorporating metadata from Fedora"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util incorporate		\
 	metadata/el7/rhel-7.xml.gz					\
@@ -88,8 +86,7 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
 	./metadata/el7/rhel-7.xml.gz					\
 	./metadata/el7/rhel-7-failed.xml.gz
 
-#echo "Uploading new metadata"
-#cd metadata/
-#./upload.sh
-#cd -
-
+echo "Renaming metadata"
+TIMESTAMP=`date +%Y%m%d`
+mv ./metadata/el7/rhel-7.xml.gz ./metadata/el7/rhel-7-$TIMESTAMP.xml.gz
+mv ./metadata/el7/rhel-7-icons.tar.gz ./metadata/el7/rhel-7-$TIMESTAMP-icons.tar.gz

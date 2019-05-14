@@ -1,5 +1,5 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib/build
-ARCHIVE_PATH=/media/bulk/mirror
+ARCHIVE_PATH=/mnt/mirror
 
 echo "Building applications..."
 time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
@@ -27,22 +27,22 @@ tar -xvf ../fedora-26-screenshots.tar
 cd -
 
 echo "Mirroring screenshots"
-appstream-util mirror-screenshots		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots		\
 	./metadata/f26/fedora-26.xml.gz					\
 	http://dl.fedoraproject.org/pub/alt/screenshots/f26		\
 	../cache ./metadata/f26
 
 echo "Creating status pages"
-appstream-util non-package-yaml 		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
 	./metadata/f26/fedora-26.xml.gz					\
 	./metadata/f26/applications-to-import.yaml
-appstream-util status-html 		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 	./metadata/f26/fedora-26.xml.gz					\
 	./metadata/f26/status.html
-appstream-util status-html 		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 	./metadata/f26/fedora-26-failed.xml.gz				\
 	./metadata/f26/failed.html
-appstream-util matrix-html 		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
 	./metadata/f26/matrix.html					\
 	./metadata/f26/fedora-26.xml.gz					\
 	./metadata/f26/fedora-26-failed.xml.gz

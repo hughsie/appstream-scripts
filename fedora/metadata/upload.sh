@@ -14,5 +14,5 @@ find * -type d -exec chmod a+rx {} \;
 
 echo "uploading screenshots"
 rsync --verbose --recursive --update --progress		\
-	f26 f27	f28 f29		\
+	f28 f29	f30	\
 	rhughes@secondary01.fedoraproject.org:/srv/pub/alt/screenshots/

@@ -66,7 +66,12 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
 	./metadata/el7/epel-7.xml.gz					\
 	./metadata/el7/epel-7-failed.xml.gz
 
-#echo "Uploading new metadata"
+echo "Renaming metadata"
+TIMESTAMP=`date +%Y%m%d`
+mv ./metadata/el7/epel-7.xml.gz ./metadata/el7/epel-7-$TIMESTAMP.xml.gz
+mv ./metadata/el7/epel-7-icons.tar.gz ./metadata/el7/epel-7-$TIMESTAMP-icons.tar.gz
+
+
 #cd metadata/
 #./upload.sh
 #cd -

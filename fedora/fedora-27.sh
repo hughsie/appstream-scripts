@@ -1,8 +1,8 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib/build
-ARCHIVE_PATH=/media/bulk/mirror
+ARCHIVE_PATH=/mnt/mirror
 
 echo "Building applications..."
-time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
+${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
 	--verbose							\
 	--veto-ignore=add-default-icons					\
 	--min-icon-size=48						\
@@ -20,7 +20,6 @@ time ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
 
 # exit if failed
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
-#exit
 
 echo "Extracting font screenshots"
 cd ./metadata/f27/source
@@ -28,25 +27,25 @@ tar -xvf ../fedora-27-screenshots.tar
 cd -
 
 echo "Mirroring screenshots"
-appstream-util mirror-screenshots		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots		\
 	./metadata/f27/fedora-27.xml.gz					\
 	http://dl.fedoraproject.org/pub/alt/screenshots/f27		\
 	../cache ./metadata/f27
 
 echo "Creating status pages"
-appstream-util non-package-yaml 		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
 	./metadata/f27/fedora-27.xml.gz					\
 	./metadata/f27/applications-to-import.yaml
-appstream-util status-html 		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 	./metadata/f27/fedora-27.xml.gz					\
 	./metadata/f27/status.html
-appstream-util status-html 		\
+${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
 	./metadata/f27/fedora-27-failed.xml.gz				\
 	./metadata/f27/failed.html
-appstream-util matrix-html 		\
-	./metadata/f27/matrix.html					\
+${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html		\
 	./metadata/f27/fedora-27.xml.gz					\
-	./metadata/f27/fedora-27-failed.xml.gz
+	./metadata/f27/fedora-27-failed.xml.gz				\
+	./metadata/f27/matrix.html
 
 echo "Uploading new metadata"
 cd metadata/
