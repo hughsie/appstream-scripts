@@ -1,0 +1,6 @@
+*.log
+*.xml.gz
+*.tar.*
+cache*
+metadata
+screenshots
