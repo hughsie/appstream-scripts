@@ -12,6 +12,7 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
 	--temp-dir=./tmp/fedora-31					\
 	--cache-dir=../cache-f31					\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/f31/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f31-updates		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
 	--output-dir=./metadata/f31					\
 	--basename=fedora-31						\

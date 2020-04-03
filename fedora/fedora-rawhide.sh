@@ -4,7 +4,7 @@ ARCHIVE_PATH=/mnt/mirror
 #export APPSTREAM_GLIB_OUTPUT_TRUSTED=1
 
 echo "Building applications..."
-xx${DESTDIR}/appstream-builder				\
+${DESTDIR}/appstream-builder				\
 	--verbose							\
 	--min-icon-size=48						\
 	--enable-hidpi							\
