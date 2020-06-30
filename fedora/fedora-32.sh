@@ -1,4 +1,4 @@
-DESTDIR=~/.root/bin
+APPSTREAM_GLIB_PATH=../../appstream-glib/build
 ARCHIVE_PATH=/mnt/mirror
 
 echo "Building applications..."
