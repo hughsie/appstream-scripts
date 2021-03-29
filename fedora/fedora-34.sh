@@ -8,44 +8,44 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
 	--min-icon-size=48						\
 	--enable-hidpi							\
 	--include-failed						\
-	--log-dir=./logs/fedora-31					\
-	--temp-dir=./tmp/fedora-31					\
-	--cache-dir=../cache-f31					\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/f31/Packages		\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/f31-updates		\
+	--log-dir=./logs/fedora-34					\
+	--temp-dir=./tmp/fedora-34					\
+	--cache-dir=../cache-f34					\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f34/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f34-updates		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
-	--output-dir=./metadata/f31					\
-	--basename=fedora-31						\
-	--origin=fedora | tee fedora-31.log
+	--output-dir=./metadata/f34					\
+	--basename=fedora-34						\
+	--origin=fedora | tee fedora-34.log
 
 # exit if failed
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
 echo "Extracting font screenshots"
-cd ./metadata/f31/source
-tar -xvf ../fedora-31-screenshots.tar
+cd ./metadata/f34/source
+tar -xvf ../fedora-34-screenshots.tar
 cd -
 
 echo "Mirroring screenshots"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots		\
-	./metadata/f31/fedora-31.xml.gz					\
-	http://dl.fedoraproject.org/pub/alt/screenshots/f31		\
-	../cache ./metadata/f31
+	./metadata/f34/fedora-34.xml.gz					\
+	http://dl.fedoraproject.org/pub/alt/screenshots/f34		\
+	../cache ./metadata/f34
 
 echo "Creating status pages"
 ${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
-	./metadata/f31/fedora-31.xml.gz					\
-	./metadata/f31/applications-to-import.yaml
+	./metadata/f34/fedora-34.xml.gz					\
+	./metadata/f34/applications-to-import.yaml
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f31/fedora-31.xml.gz					\
-	./metadata/f31/status.html
+	./metadata/f34/fedora-34.xml.gz					\
+	./metadata/f34/status.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f31/fedora-31-failed.xml.gz				\
-	./metadata/f31/failed.html
+	./metadata/f34/fedora-34-failed.xml.gz				\
+	./metadata/f34/failed.html
 ${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
-	./metadata/f31/fedora-31.xml.gz					\
-	./metadata/f31/fedora-31-failed.xml.gz				\
-	./metadata/f31/matrix.html
+	./metadata/f34/fedora-34.xml.gz					\
+	./metadata/f34/fedora-34-failed.xml.gz				\
+	./metadata/f34/matrix.html
 
 echo "Uploading new metadata"
 cd metadata/
