@@ -12,12 +12,11 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
 	--temp-dir=./tmp/fedora-32					\
 	--cache-dir=../cache-f32					\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/f32/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f32-updates		\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
 	--output-dir=./metadata/f32					\
 	--basename=fedora-32						\
 	--origin=fedora | tee fedora-32.log
-
-#	--packages-dir=${ARCHIVE_PATH}/Fedora/f32-updates
 
 # exit if failed
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi

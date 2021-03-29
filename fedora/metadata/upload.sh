@@ -5,5 +5,5 @@ echo "fixing permissions on screenshots"
 
 echo "uploading screenshots"
 rsync --verbose --recursive --update --progress		\
-	f28 f29	f30 f31 f32	\
+	f32	f33 \
 	rhughes@secondary01.fedoraproject.org:/srv/pub/alt/screenshots/

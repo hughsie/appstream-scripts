@@ -1,5 +1,5 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib/build
-ARCHIVE_PATH=/media/bulk/mirror
+ARCHIVE_PATH=/mnt/mirror
 
 echo "Building applications..."
 ${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
@@ -15,7 +15,7 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
 	--log-dir=./logs						\
 	--temp-dir=./tmp/epel-7						\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/epel-7			\
+	--packages-dir=${ARCHIVE_PATH}/RHEL/epel-7			\
 	--output-dir=./metadata/el7					\
 	--basename=epel-7						\
 	--origin=epel-7
