@@ -1,51 +1,51 @@
-APPSTREAM_GLIB_PATH=../../appstream-glib/build
-ARCHIVE_PATH=/mnt/mirror
+ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
+VERSION=32
 
 echo "Building applications..."
-${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
+appstream-builder							\
 	--verbose							\
 	--veto-ignore=add-default-icons					\
 	--min-icon-size=48						\
 	--enable-hidpi							\
 	--include-failed						\
-	--log-dir=./logs/fedora-32					\
-	--temp-dir=./tmp/fedora-32					\
-	--cache-dir=../cache-f32					\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/f32/Packages		\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/f32-updates		\
+	--log-dir=./logs/fedora-${VERSION}				\
+	--temp-dir=./tmp/fedora-${VERSION}				\
+	--cache-dir=../cache-f${VERSION}				\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f${VERSION}/Packages	\
+	--packages-dir=${ARCHIVE_PATH}/Fedora/f${VERSION}-updates	\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
-	--output-dir=./metadata/f32					\
-	--basename=fedora-32						\
-	--origin=fedora | tee fedora-32.log
+	--output-dir=./metadata/f${VERSION}				\
+	--basename=fedora-${VERSION}					\
+	--origin=fedora | tee fedora-${VERSION}.log
 
 # exit if failed
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
 echo "Extracting font screenshots"
-cd ./metadata/f32/source
-tar -xvf ../fedora-32-screenshots.tar
+cd ./metadata/f${VERSION}/source
+tar -xvf ../fedora-${VERSION}-screenshots.tar
 cd -
 
 echo "Mirroring screenshots"
-${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots		\
-	./metadata/f32/fedora-32.xml.gz					\
-	http://dl.fedoraproject.org/pub/alt/screenshots/f32		\
-	../cache ./metadata/f32
+appstream-util mirror-screenshots					\
+	./metadata/f${VERSION}/fedora-${VERSION}.xml.gz			\
+	http://dl.fedoraproject.org/pub/alt/screenshots/f${VERSION}	\
+	../cache ./metadata/f${VERSION}
 
 echo "Creating status pages"
-${APPSTREAM_GLIB_PATH}/client/appstream-util non-package-yaml 		\
-	./metadata/f32/fedora-32.xml.gz					\
-	./metadata/f32/applications-to-import.yaml
-${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f32/fedora-32.xml.gz					\
-	./metadata/f32/status.html
-${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
-	./metadata/f32/fedora-32-failed.xml.gz				\
-	./metadata/f32/failed.html
-${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
-	./metadata/f32/fedora-32.xml.gz					\
-	./metadata/f32/fedora-32-failed.xml.gz				\
-	./metadata/f32/matrix.html
+appstream-util non-package-yaml 					\
+	./metadata/f${VERSION}/fedora-${VERSION}.xml.gz			\
+	./metadata/f${VERSION}/applications-to-import.yaml
+appstream-util status-html 						\
+	./metadata/f${VERSION}/fedora-${VERSION}.xml.gz			\
+	./metadata/f${VERSION}/status.html
+appstream-util status-html 						\
+	./metadata/f${VERSION}/fedora-${VERSION}-failed.xml.gz		\
+	./metadata/f${VERSION}/failed.html
+appstream-util matrix-html 						\
+	./metadata/f${VERSION}/fedora-${VERSION}.xml.gz			\
+	./metadata/f${VERSION}/fedora-${VERSION}-failed.xml.gz		\
+	./metadata/f${VERSION}/matrix.html
 
 echo "Uploading new metadata"
 cd metadata/
