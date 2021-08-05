@@ -1,8 +1,7 @@
-APPSTREAM_GLIB_PATH=../../appstream-glib/build
 ARCHIVE_PATH=/mnt/mirror
 
 echo "Building applications..."
-${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
+appstream-builder				\
 	--verbose							\
 	--veto-ignore=dead-upstream					\
 	--veto-ignore=obsolete-deps					\
@@ -24,19 +23,19 @@ ${APPSTREAM_GLIB_PATH}/client/appstream-builder				\
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
 echo "Mirroring screenshots"
-${APPSTREAM_GLIB_PATH}/client/appstream-util mirror-screenshots	\
+appstream-util mirror-screenshots					\
 	./metadata/el8/epel-8.xml.gz					\
 	https://access.redhat.com/webassets/avalon/g/gnome-software/screenshots/ \
 	../cache ./metadata/el8
 
 echo "Creating status pages"
-${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
+appstream-util status-html 						\
 	./metadata/el8/epel-8.xml.gz					\
 	./metadata/el8/status.html
-${APPSTREAM_GLIB_PATH}/client/appstream-util status-html 		\
+appstream-util status-html 						\
 	./metadata/el8/epel-8-failed.xml.gz				\
 	./metadata/el8/failed.html
-${APPSTREAM_GLIB_PATH}/client/appstream-util matrix-html 		\
+appstream-util matrix-html 						\
 	./metadata/el8/matrix.html					\
 	./metadata/el8/epel-8.xml.gz					\
 	./metadata/el8/epel-8-failed.xml.gz
