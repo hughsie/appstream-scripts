@@ -1,5 +1,5 @@
 ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
-VERSION=32
+VERSION=35
 
 echo "Building applications..."
 appstream-builder							\
@@ -12,7 +12,6 @@ appstream-builder							\
 	--temp-dir=./tmp/fedora-${VERSION}				\
 	--cache-dir=../cache-f${VERSION}				\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/f${VERSION}/Packages	\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/f${VERSION}-updates	\
 	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
 	--output-dir=./metadata/f${VERSION}				\
 	--basename=fedora-${VERSION}					\
