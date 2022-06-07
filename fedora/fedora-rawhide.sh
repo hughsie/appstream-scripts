@@ -1,5 +1,5 @@
 ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
-VERSION=36
+VERSION=37
 
 echo "Building applications..."
 appstream-builder							\
