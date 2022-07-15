@@ -6,7 +6,6 @@ appstream-builder							\
 	--verbose							\
 	--veto-ignore=add-default-icons					\
 	--min-icon-size=48						\
-	--enable-hidpi							\
 	--include-failed						\
 	--log-dir=./logs/fedora-${VERSION}				\
 	--temp-dir=./tmp/fedora-${VERSION}				\
