@@ -9,7 +9,6 @@ appstream-builder							\
 	--veto-ignore=use-fallbacks					\
 	--veto-ignore=ignore-settings					\
 	--min-icon-size=48						\
-	--enable-hidpi							\
 	--include-failed						\
 	--log-dir=./logs						\
 	--temp-dir=./tmp/rhel-9						\

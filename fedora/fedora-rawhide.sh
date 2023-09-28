@@ -1,5 +1,5 @@
 ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
-VERSION=38
+VERSION=40
 
 echo "Building applications..."
 appstream-builder							\
@@ -17,7 +17,7 @@ appstream-builder							\
 	--origin=fedora | tee fedora-${VERSION}.log
 
 # exit if failed
-rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
+#rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
 echo "Extracting font screenshots"
 cd ./metadata/f${VERSION}/source
