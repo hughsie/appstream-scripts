@@ -1,5 +1,5 @@
-ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
-VERSION=40
+ARCHIVE_PATH=/media/data/mirror
+VERSION=45
 
 echo "Building applications..."
 appstream-builder							\
@@ -10,14 +10,14 @@ appstream-builder							\
 	--log-dir=./logs/fedora-${VERSION}				\
 	--temp-dir=./tmp/fedora-${VERSION}				\
 	--cache-dir=../cache-f${VERSION}				\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/rawhide/Packages		\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
+	--packages-dir=${ARCHIVE_PATH}/fedora/rawhide/Packages		\
+	--packages-dir=${ARCHIVE_PATH}/fedora/openh264			\
 	--output-dir=./metadata/f${VERSION}				\
 	--basename=fedora-${VERSION}					\
 	--origin=fedora | tee fedora-${VERSION}.log
 
 # exit if failed
-#rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
+rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
 echo "Extracting font screenshots"
 cd ./metadata/f${VERSION}/source
@@ -28,7 +28,7 @@ echo "Mirroring screenshots"
 appstream-util mirror-screenshots					\
 	./metadata/f${VERSION}/fedora-${VERSION}.xml.gz			\
 	http://dl.fedoraproject.org/pub/alt/screenshots/f${VERSION}	\
-	../cache ./metadata/f${VERSION}
+	../cache-f${VERSION} ./metadata/f${VERSION}
 
 echo "Creating status pages"
 appstream-util non-package-yaml 					\

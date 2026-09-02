@@ -1,7 +1,7 @@
-ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
+ARCHIVE_PATH=/media/data/mirror
 
 echo "Building applications..."
-appstream-builder							\
+/home/hughsie/Code/appstream-glib/build/client/appstream-builder	\
 	--verbose							\
 	--veto-ignore=dead-upstream					\
 	--veto-ignore=obsolete-deps					\
@@ -13,9 +13,10 @@ appstream-builder							\
 	--log-dir=./logs						\
 	--temp-dir=./tmp/rhel-10					\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-10-baseos		\
-	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-10-appstream		\
-	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-10-crb			\
+	--packages-dir=${ARCHIVE_PATH}/rhel/rhel-10-baseos		\
+	--packages-dir=${ARCHIVE_PATH}/rhel/rhel-10-appstream		\
+	--packages-dir=${ARCHIVE_PATH}/rhel/rhel-10-crb			\
+	--packages-dir=${ARCHIVE_PATH}/rhel/rhel-10-ha			\
 	--output-dir=./metadata/el10					\
 	--basename=rhel-10						\
 	--origin=rhel-10

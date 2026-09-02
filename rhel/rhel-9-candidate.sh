@@ -1,4 +1,4 @@
-ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
+ARCHIVE_PATH=/media/data/mirror
 
 echo "Building applications..."
 appstream-builder							\
@@ -13,9 +13,9 @@ appstream-builder							\
 	--log-dir=./logs						\
 	--temp-dir=./tmp/rhel-9						\
 	--cache-dir=../cache						\
-	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-9-baseos		\
-	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-9-appstream		\
-	--packages-dir=${ARCHIVE_PATH}/RHEL/rhel-9-crb			\
+	--packages-dir=${ARCHIVE_PATH}/rhel/rhel-9-baseos		\
+	--packages-dir=${ARCHIVE_PATH}/rhel/rhel-9-appstream		\
+	--packages-dir=${ARCHIVE_PATH}/rhel/rhel-9-crb			\
 	--output-dir=./metadata/el9					\
 	--basename=rhel-9						\
 	--origin=rhel-9

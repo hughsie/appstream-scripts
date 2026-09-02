@@ -1,5 +1,5 @@
-ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
-VERSION=39
+ARCHIVE_PATH=/media/data/mirror
+VERSION=40
 
 echo "Building applications..."
 appstream-builder							\
@@ -10,8 +10,9 @@ appstream-builder							\
 	--log-dir=./logs/fedora-${VERSION}				\
 	--temp-dir=./tmp/fedora-${VERSION}				\
 	--cache-dir=../cache-f${VERSION}				\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/f${VERSION}/Packages	\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
+	--packages-dir=${ARCHIVE_PATH}/fedora/f${VERSION}/Packages	\
+	--packages-dir=${ARCHIVE_PATH}/fedora/f${VERSION}-updates	\
+	--packages-dir=${ARCHIVE_PATH}/fedora/openh264			\
 	--output-dir=./metadata/f${VERSION}				\
 	--basename=fedora-${VERSION}					\
 	--origin=fedora | tee fedora-${VERSION}.log
