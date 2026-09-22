@@ -1,4 +1,4 @@
-ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
+ARCHIVE_PATH="${ARCHIVE_PATH:-run/media/hughsie/Backup/mirror}"
 VERSION=40
 
 echo "Building applications..."

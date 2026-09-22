@@ -1,4 +1,4 @@
-ARCHIVE_PATH=/run/media/hughsie/Backup/mirror
+ARCHIVE_PATH="${ARCHIVE_PATH:-run/media/hughsie/Backup/mirror}"
 
 echo "Building applications..."
 appstream-builder							\

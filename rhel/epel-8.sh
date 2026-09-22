@@ -1,4 +1,4 @@
-ARCHIVE_PATH=/mnt/mirror
+ARCHIVE_PATH="${ARCHIVE_PATH:-mnt/mirror}"
 
 echo "Building applications..."
 appstream-builder				\

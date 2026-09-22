@@ -1,5 +1,5 @@
 APPSTREAM_GLIB_PATH=../../appstream-glib/build
-ARCHIVE_PATH=/mnt/mirror
+ARCHIVE_PATH="${ARCHIVE_PATH:-mnt/mirror}"
 
 echo "Building applications..."
 ${APPSTREAM_GLIB_PATH}/client/appstream-builder			\
