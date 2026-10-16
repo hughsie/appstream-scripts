@@ -17,8 +17,13 @@ if [[ "$( . /etc/os-release; echo "$ID" )" != "fedora" ]]; then
 	exit 1
 fi
 
-if ! command -v jq >/dev/null; then
-        echo "jq needed to run"
+REQUIRED="appstream-builder appstream-util jq"
+MISSING=()
+for C in $REQUIRED; do
+	command -v $C >/dev/null || MISSING+=("$C")
+done
+if [[ "${#MISSING[@]}" -gt "0" ]]; then
+        echo "These dependencies are missing: ${MISSING[@]}"
         exit 1
 fi
 
@@ -45,7 +50,7 @@ for REPO in $REPOS; do
 done
 
 # updates repo is empty before release; this skips it
-PKGS_DIRS="$(for DIR in "${ARCHIVE_PATH}/fedora-${FEDORA_VERSION}/"*/Packages; do ls -d "${DIR}" | sed -e 's/^/--packages-dir=/' ; done)"
+PKGS_DIRS="$(for DIR in "${ARCHIVE_PATH}/fedora-${VERSION}/"*/Packages; do ls -d "${DIR}" | sed -e 's/^/--packages-dir=/' ; done)"
 
 echo "Building applications..."
 appstream-builder							\
@@ -62,15 +67,16 @@ appstream-builder							\
 	--origin=fedora | tee fedora-${VERSION}.log
 
 echo "Extracting font screenshots"
-cd "./metadata/f${VERSION}/source"
+mkdir -p "${BASEDIR}/metadata/f${VERSION}/source"
+pushd "${BASEDIR}/metadata/f${VERSION}/source"
 tar -xvf "../fedora-${VERSION}-screenshots.tar"
-cd -
+popd
 
 echo "Mirroring screenshots"
 appstream-util mirror-screenshots					\
 	${BASEDIR}/metadata/f${VERSION}/fedora-${VERSION}.xml.gz	\
 	http://dl.fedoraproject.org/pub/alt/screenshots/f${VERSION}	\
-	${BASEDIR}/../cache ${BASEDIR}/metadata/f${VERSION}
+	${BASEDIR}/../cache-f${VERSION} ${BASEDIR}/metadata/f${VERSION}
 
 echo "Creating status pages"
 appstream-util non-package-yaml 					\
@@ -88,6 +94,6 @@ appstream-util matrix-html 						\
 	${BASEDIR}/metadata/f${VERSION}/matrix.html
 
 echo "Uploading new metadata"
-cd metadata/
+pushd ${BASEDIR}/metadata/
 ./upload.sh f${VERSION}
-cd -
+popd
