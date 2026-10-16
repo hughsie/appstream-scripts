@@ -1,15 +1,45 @@
-# vars taken from environment:
+#!/usr/bin/bash
+#
+# Build metadata for Fedora version this script is running on. For
+# another version, spin up a new container or VM
+#
+# Vars taken from environment:
 # ARCHIVE_PATH: where to mirror the repository
-# FEDORA_VERSION: force to mirror a different Fedora version
+
+set -e
 
 ARCHIVE_PATH="${ARCHIVE_PATH:-run/media/hughsie/Backup/mirror}"
-SYSTEM_VERSION="$( . /etc/os-release; echo $VERSION_ID )"
-VERSION="${FEDORA_VERSION:-${SYSTEM_VERSION}}"
+VERSION="$( . /etc/os-release; echo $VERSION_ID )"
 
-if ! command -v jq 2>/dev/null; then
+if ! command -v jq >/dev/null; then
         echo "jq needed to run"
         exit 1
 fi
+
+if [[ ! -d "$ARCHIVE_PATH" ]]; then
+        echo "ARCHIVE_PATH needs to be a directory" >&2
+        exit 1
+fi
+
+if [[ ! -d "./logs" ]]; then
+	mkdir -p ./logs || {
+		echo "./logs dir not present or readable" >&2
+		exit 1
+	}
+fi
+
+# Download
+REPOS="$(dnf repolist --json | jq -r ".[].id")"
+for REPO in $REPOS; do
+        dnf reposync							\
+		--setopt=*.module_hotfixes=1				\
+		--repo "${REPO}"					\
+		-p ${ARCHIVE_PATH}/fedora-${VERSION}/			\
+		2>&1 | tee "${REPO}.log"
+done
+
+# updates repo is empty before release; this skips it
+PKGS_DIRS="$(for DIR in "${ARCHIVE_PATH}/fedora-${FEDORA_VERSION}/"*/Packages; do ls -d "${DIR}" | sed -e 's/^/--packages-dir=/' ; done)"
 
 echo "Building applications..."
 appstream-builder							\
@@ -20,18 +50,14 @@ appstream-builder							\
 	--log-dir=./logs/fedora-${VERSION}				\
 	--temp-dir=./tmp/fedora-${VERSION}				\
 	--cache-dir=../cache-f${VERSION}				\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/f${VERSION}/Packages	\
-	--packages-dir=${ARCHIVE_PATH}/Fedora/openh264			\
+	$PKGS_DIRS							\
 	--output-dir=./metadata/f${VERSION}				\
 	--basename=fedora-${VERSION}					\
 	--origin=fedora | tee fedora-${VERSION}.log
 
-# exit if failed
-rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
-
 echo "Extracting font screenshots"
-cd ./metadata/f${VERSION}/source
-tar -xvf ../fedora-${VERSION}-screenshots.tar
+cd "./metadata/f${VERSION}/source"
+tar -xvf "../fedora-${VERSION}-screenshots.tar"
 cd -
 
 echo "Mirroring screenshots"
@@ -57,5 +83,5 @@ appstream-util matrix-html 						\
 
 echo "Uploading new metadata"
 cd metadata/
-./upload.sh
+./upload.sh f${VERSION}
 cd -
