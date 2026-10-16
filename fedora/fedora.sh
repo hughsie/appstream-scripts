@@ -12,6 +12,11 @@ ARCHIVE_PATH="${ARCHIVE_PATH:-run/media/hughsie/Backup/mirror}"
 VERSION="$( . /etc/os-release; echo $VERSION_ID )"
 BASEDIR="$( dirname "${0}")"
 
+if [[ "$( . /etc/os-release; echo "$ID" )" != "fedora" ]]; then
+	echo "This script is only for Fedora"
+	exit 1
+fi
+
 if ! command -v jq >/dev/null; then
         echo "jq needed to run"
         exit 1
