@@ -1,9 +1,9 @@
 
-echo "fixing permissions on screenshots"
-#find * -type f -exec chmod a+r {} \;
-#find * -type d -exec chmod a+rx {} \;
+echo "setting permissions on screenshots"
+chmod -R 0444 ${@:-.}
+chmod -R ug+rwX,o+rX ${@}
 
 echo "uploading screenshots"
 rsync --verbose --recursive --update --progress		\
-	f35 f36 f37 f38 f39 \
-	rhughes@secondary01.fedoraproject.org:/srv/pub/alt/screenshots/
+	${@:-f46 f45 f44 f43} \
+	"${FEDORA_USER:-$(whoami)}@secondary01.fedoraproject.org:/srv/pub/alt/screenshots/"
